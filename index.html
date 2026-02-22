@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidhi Financial Services</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#f4f6f8; }
+    header { background:#0a3d62; color:#fff; padding:20px; text-align:center; }
+    nav { background:#1e6091; padding:10px; text-align:center; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; }
+    section { padding:30px; }
+    .services { display:flex; gap:20px; flex-wrap:wrap; }
+    .card { background:#fff; padding:20px; border-radius:8px; width:300px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .card img { width:100%; border-radius:6px; }
+    .owner { background:#e9f5ff; padding:20px; border-left:5px solid #1e6091; }
+    form { background:#fff; padding:20px; border-radius:8px; max-width:400px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    input, textarea, button { width:100%; padding:10px; margin-top:10px; }
+    button { background:#1e6091; color:#fff; border:none; cursor:pointer; }
+    footer { background:#0a3d62; color:#fff; text-align:center; padding:15px; margin-top:30px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Vidhi Financial Services</h1>
+  <p>Loan • Insurance • Financial Growth</p>
+</header>
+
+<nav>
+  <a href="#services">Services</a>
+  <a href="#updates">Daily Updates</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <img src="loan.jpg" alt="Loan Services">
+      <h3>Loan Services</h3>
+      <p>Home Loan, Personal Loan, Business Loan, Vehicle Loan.</p>
+    </div>
+    <div class="card">
+      <img src="insurance.jpg" alt="Insurance Services">
+      <h3>Insurance Services</h3>
+      <p>Life Insurance, Health Insurance, Vehicle Insurance, FD, RD.</p>
+    </div>
+  </div>
+</section>
+
+<section class="owner">
+  <h2>Founder</h2>
+  <p><strong>Suthar Praveenkumar</strong><br>Founder & Managing Head – Vidhi Financial Services</p>
+</section>
+
+<section id="updates">
+  <h2>Get Latest Offers & Updates</h2>
+  <p>Enter your mobile number to receive weekly loan & insurance offers.</p>
+  <form id="updateForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="tel" id="mobile" placeholder="Mobile Number" required />
+    <button type="submit">Get Updates</button>
+  </form>
+  <p id="msg"></p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 Mobile: 9898602567</p>
+  <p>📍 Shop No.G-12,Mangalya Apartment,Sattadhar Cross Road,Nr. Sola Bridge,Ghatlodiya,Ahmedabad,Gujarat-380061.</p>
+</section>
+
+<footer>
+  <p>© 2026 Vidhi Financial Services. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('updateForm');
+  const msg = document.getElementById('msg');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const mobile = document.getElementById('mobile').value;
+
+    // Save data in browser (demo purpose)
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    users.push({name, mobile});
+    localStorage.setItem('users', JSON.stringify(users));
+
+    msg.innerText = "Thank you! You will receive weekly updates.";
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
